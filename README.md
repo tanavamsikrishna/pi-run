@@ -1,6 +1,6 @@
 # pi-run
 
-Run debugging typescript within the node context of pi coding agent
+This is a [Pi](https://pi.dev) extension for Pi extension developers. It enables running Typescript within the Node.js context of the Pi coding agent
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/tanavamsikrishna/pi-run/refs/heads/main/screenshot.png" width="500" alt="Alt text description">
@@ -12,7 +12,7 @@ pi install npm:@vamsitalupula/pi-run
 ```
 
 ## How to use?
-1. Create a new file by running `/pi-run ./debug.ts` inside *pi*
+1. Create a new file by running `/pi-run ./debug.ts` in Pi user prompt
 2. You should see a new file called `debug.ts` created in the current folder
 ```ts
 import type {
