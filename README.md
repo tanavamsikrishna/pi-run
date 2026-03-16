@@ -12,7 +12,7 @@ pi install npm:@vamsitalupula/pi-run
 ```
 
 ## How to use?
-1. Create a new file using `/pi-run ./debug.ts` inside *pi*
+1. Create a new file by running `/pi-run ./debug.ts` inside *pi*
 2. You should see a new file called `debug.ts` created in the current folder
 ```ts
 import type {
