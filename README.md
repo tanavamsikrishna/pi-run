@@ -2,7 +2,7 @@
 
 Run debugging typescript within the node context of pi coding agent
 
-![Screenshot]("./screenshot.png")
+![Screenshot](./screenshot.png)
 
 ## Installation
 
