@@ -1,5 +1,6 @@
 {
   "name": "@vamsitalupula/pi-run",
+  "repository": "github:tanavamsikrishna/pi-run",
   "version": "1.3.0",
   "description": "A pi coding agent extension to run TypeScript files with a default export function",
   "type": "module",
