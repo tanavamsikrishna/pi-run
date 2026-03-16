@@ -23,7 +23,6 @@
   ],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.32.1",
   "dependencies": {
     "jiti": "^2.6.1"
   },
