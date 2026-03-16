@@ -2,8 +2,9 @@
 
 Run debugging typescript within the node context of pi coding agent
 
-![Screenshot](https://raw.githubusercontent.com/tanavamsikrishna/pi-run/refs/heads/main/screenshot.png)
-
+<p align="center">
+    <img src="https://raw.githubusercontent.com/tanavamsikrishna/pi-run/refs/heads/main/screenshot.png" width="500" alt="Alt text description">
+</p>
 ## Installation
 
 ```sh
