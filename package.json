@@ -1,14 +1,35 @@
 {
   "name": "pi-run",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
+  "description": "A pi coding agent extension to run TypeScript files with a default export function",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --clean",
+    "dev": "tsup src/index.ts --format esm --watch"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "main": "dist/index.js",
+  "keywords": [
+    "pi",
+    "coding-agent",
+    "extension",
+    "typescript",
+    "jiti",
+    "devtool",
+    "runner"
+  ],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.32.1",
   "dependencies": {
     "jiti": "^2.6.1"
+  },
+  "devDependencies": {
+    "@mariozechner/pi-coding-agent": "^0.58.3",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
   }
 }
