@@ -7,5 +7,6 @@ export default function (
     pi: ExtensionAPI,
     getCtx: () => ExtensionContext | null,
 ) {
+    // Your code here
     return pi.getActiveTools();
 }
