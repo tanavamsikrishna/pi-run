@@ -5,6 +5,7 @@ This is a [Pi](https://pi.dev) extension for Pi extension developers. It enables
 <p align="center">
     <img src="https://raw.githubusercontent.com/tanavamsikrishna/pi-run/refs/heads/main/screenshot.png" width="500" alt="Alt text description">
 </p>
+
 ## Installation
 
 ```sh
