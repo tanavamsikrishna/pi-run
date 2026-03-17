@@ -2,7 +2,7 @@
   "name": "@vamsitalupula/pi-run",
   "repository": "github:tanavamsikrishna/pi-run",
   "version": "1.5.0",
-  "description": "A pi coding agent extension to run TypeScript files with a default export function",
+  "description": "Run Typescript within the Node.js context of the Pi coding agent",
   "type": "module",
   "scripts": {
     "build": "tsup src/index.ts --format esm --clean --outDir extensions",
