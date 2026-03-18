@@ -3,19 +3,20 @@ import type {
     ExtensionContext,
 } from "@mariozechner/pi-coding-agent";
 import { existsSync, writeFileSync, readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import path, { resolve } from "path";
 import { createJiti, Jiti } from "jiti";
+import { fileURLToPath } from "node:url";
 
-const TEMPLATE = `import type {
-    ExtensionAPI,
-    ExtensionContext,
-} from "@mariozechner/pi-coding-agent";
-
-export default function (pi: ExtensionAPI, getCtx: () => ExtensionContext | null) {
-    // Your code here
-    return pi.getActiveTools();
+function createIfEmpty(fullPath: string): "was-empty" | "was-not-empty" {
+    if (!existsSync(fullPath) || !readFileSync(fullPath, "utf8").trim()) {
+        const __dirname = path.dirname(fileURLToPath(import.meta.url));
+        const templateFileLocation = path.join(__dirname, "./TEMPLATE.ts");
+        const codeTemplate = readFileSync(templateFileLocation);
+        writeFileSync(fullPath, codeTemplate, "utf-8");
+        return "was-empty";
+    }
+    return "was-not-empty";
 }
-`;
 
 export default function (pi: ExtensionAPI) {
     let lastCtx: ExtensionContext | null = null;
@@ -41,20 +42,8 @@ export default function (pi: ExtensionAPI) {
             }
 
             const fullPath = resolve(ctx.cwd, filePath);
-
-            if (!existsSync(fullPath)) {
-                writeFileSync(fullPath, TEMPLATE, "utf-8");
-                ctx.ui.notify(`Created new file: ${fullPath}`, "info");
-                return;
-            }
-
-            const code = readFileSync(fullPath, "utf-8");
-            if (!code.trim()) {
-                writeFileSync(fullPath, TEMPLATE, "utf-8");
-                ctx.ui.notify(
-                    `File was empty, reset to template: ${fullPath}`,
-                    "info",
-                );
+            if (createIfEmpty(fullPath) == "was-empty") {
+                ctx.ui.notify(`${filePath} updated with a code template`);
                 return;
             }
 

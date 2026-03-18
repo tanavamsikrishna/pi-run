@@ -5,8 +5,8 @@
   "description": "Run Typescript within the Node.js context of the Pi coding agent",
   "type": "module",
   "scripts": {
-    "build": "tsup src/index.ts --format esm --clean --outDir extensions",
-    "dev": "tsup src/index.ts --format esm --watch --outDir extensions"
+    "build": "tsup src/index.ts --format esm --clean --outDir extensions --publicDir ./static/",
+    "dev": "tsup src/index.ts --format esm --watch --outDir extensions --publicDir ./static/"
   },
   "files": [
     "extensions",
