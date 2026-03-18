@@ -50,8 +50,8 @@ packages:
   '@aws-crypto/util@5.2.0':
     resolution: {integrity: sha512-4RkU9EsI6ZpBve5fseQlGNUWKMa1RLPQ1dnjnQoe07ldfIzcsGb5hC5W0Dm7u423KWzawlrpbjXBrXCEv9zazQ==}
 
-  '@aws-sdk/client-bedrock-runtime@3.1010.0':
-    resolution: {integrity: sha512-+w0fLPL/OjW2SAa7oADu5LmJgbzPTnDCduwcmFnhDUXaeKdyq++BTOX+bqn3SxZ8FnEc8TrfOYAfx66hf7tKdA==}
+  '@aws-sdk/client-bedrock-runtime@3.1011.0':
+    resolution: {integrity: sha512-yn5oRLLP1TsGLZqlnyqBjAVmiexYR8/rPG8D+rI5f5+UIvb3zHOmHLXA1m41H/sKXI4embmXfUjvArmjTmfsIw==}
     engines: {node: '>=20.0.0'}
 
   '@aws-sdk/core@3.973.20':
@@ -130,8 +130,8 @@ packages:
     resolution: {integrity: sha512-KCPLuTqN9u0Rr38Arln78fRG9KXpzsPWmof+PZzfAHMMQq2QED6YjQrkrfiH7PDefLWEposY1o4/eGwrmKA4JA==}
     engines: {node: '>=20.0.0'}
 
-  '@aws-sdk/token-providers@3.1010.0':
-    resolution: {integrity: sha512-nR4Iu7+qOUPgnzTpdikOL4cT70R5YRdeo6JQJ5678qv23OwWk3PgJL9BoXtPu2UyAuXNX58BQc7cpYl21sKAoA==}
+  '@aws-sdk/token-providers@3.1011.0':
+    resolution: {integrity: sha512-WSfBVDQ9uyh1GCR+DxxgHEvAKv+beMIlSeJ2pMAG1HTci340+xbtz1VFwnTJ5qCxrMi+E4dyDMiSAhDvHnq73A==}
     engines: {node: '>=20.0.0'}
 
   '@aws-sdk/types@3.973.6':
@@ -333,8 +333,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@google/genai@1.45.0':
-    resolution: {integrity: sha512-+sNRWhKiRibVgc4OKi7aBJJ0A7RcoVD8tGG+eFkqxAWRjASDW+ktS9lLwTDnAxZICzCVoeAdu8dYLJVTX60N9w==}
+  '@google/genai@1.46.0':
+    resolution: {integrity: sha512-ewPMN5JkKfgU5/kdco9ZhXBHDPhVqZpMQqIFQhwsHLf8kyZfx1cNpw1pHo1eV6PGEW7EhIBFi3aYZraFndAXqg==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@modelcontextprotocol/sdk': ^1.25.2
@@ -1591,7 +1591,7 @@ snapshots:
       '@smithy/util-utf8': 2.3.0
       tslib: 2.8.1
 
-  '@aws-sdk/client-bedrock-runtime@3.1010.0':
+  '@aws-sdk/client-bedrock-runtime@3.1011.0':
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
@@ -1605,7 +1605,7 @@ snapshots:
       '@aws-sdk/middleware-user-agent': 3.972.21
       '@aws-sdk/middleware-websocket': 3.972.13
       '@aws-sdk/region-config-resolver': 3.972.8
-      '@aws-sdk/token-providers': 3.1010.0
+      '@aws-sdk/token-providers': 3.1011.0
       '@aws-sdk/types': 3.973.6
       '@aws-sdk/util-endpoints': 3.996.5
       '@aws-sdk/util-user-agent-browser': 3.972.8
@@ -1887,7 +1887,7 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/token-providers@3.1010.0':
+  '@aws-sdk/token-providers@3.1011.0':
     dependencies:
       '@aws-sdk/core': 3.973.20
       '@aws-sdk/nested-clients': 3.996.10
@@ -2029,7 +2029,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.4':
     optional: true
 
-  '@google/genai@1.45.0':
+  '@google/genai@1.46.0':
     dependencies:
       google-auth-library: 10.6.2
       p-retry: 4.6.2
@@ -2118,8 +2118,8 @@ snapshots:
   '@mariozechner/pi-ai@0.58.4(ws@8.19.0)(zod@4.3.6)':
     dependencies:
       '@anthropic-ai/sdk': 0.73.0(zod@4.3.6)
-      '@aws-sdk/client-bedrock-runtime': 3.1010.0
-      '@google/genai': 1.45.0
+      '@aws-sdk/client-bedrock-runtime': 3.1011.0
+      '@google/genai': 1.46.0
       '@mistralai/mistralai': 1.14.1
       '@sinclair/typebox': 0.34.48
       ajv: 8.18.0
