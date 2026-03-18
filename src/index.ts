@@ -4,7 +4,7 @@ import type {
 } from "@mariozechner/pi-coding-agent";
 import { existsSync, writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { createJiti } from "jiti";
+import { createJiti, Jiti } from "jiti";
 
 const TEMPLATE = `import type {
     ExtensionAPI,
@@ -19,7 +19,7 @@ export default function (pi: ExtensionAPI, getCtx: () => ExtensionContext | null
 
 export default function (pi: ExtensionAPI) {
     let lastCtx: ExtensionContext | null = null;
-    const jiti = createJiti(import.meta.url);
+    let jiti: Jiti | undefined = undefined;
 
     pi.on("session_start", async (_event, ctx) => {
         lastCtx = ctx;
@@ -59,8 +59,12 @@ export default function (pi: ExtensionAPI) {
             }
 
             try {
-                const mod = await jiti.import(fullPath);
-                const fn = mod?.default || mod;
+                jiti ||= createJiti(import.meta.url, {
+                    fsCache: false,
+                    moduleCache: false,
+                });
+                const mod = await jiti.import(fullPath, { default: true });
+                const fn = mod;
 
                 if (typeof fn !== "function") {
                     ctx.ui.notify(
