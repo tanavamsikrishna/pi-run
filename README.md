@@ -21,11 +21,11 @@ import type {
     ExtensionContext,
 } from "@mariozechner/pi-coding-agent";
 
-export default function (
-    pi: ExtensionAPI,
-    getCtx: () => ExtensionContext | null,
-) {
+const LAST_ACCESS_ENTRY_TYPE = "state-drift-detection:last-access";
+
+export default function (pi: ExtensionAPI, getCtx: () => ExtensionContext) {
     // Your code here
+    // return getCtx().getSystemPrompt();
     return pi.getActiveTools();
 }
 ```
@@ -33,3 +33,42 @@ export default function (
 4. The data/object returned by the `default export function` is shown as a pi notification
 5. The package `@mariozechner/pi-coding-agent` is available in the node environment running *pi*. But if you need LSP/linting support in your editor, you need to point your editor tools to the install location of the package one way or an other. The easiest is to just run `pnpm i --save-dev @mariozechner/pi-coding-agent` in the project or local directory
 
+## Examples
+**To see the runtime system prompt**
+```ts
+export default function (pi: ExtensionAPI, getCtx: () => ExtensionContext) {
+    return getCtx().getSystemPrompt();
+}
+```
+
+**To get assistant message details with decreasing cache reads**
+```ts
+    const ctx = getCtx();
+    const branch = ctx.sessionManager.getBranch();
+
+    const messages = branch
+        .filter((entry) => entry.type === "message")
+        .map((entry) => entry.message);
+
+    return messages
+        .slice(1)
+        .filter((msg, index) => {
+            if (msg.role !== "assistant" || !msg.usage) return false;
+
+            const prevMsg = messages[index];
+            const prevCache =
+                prevMsg?.role === "assistant"
+                    ? (prevMsg.usage?.cacheRead ?? 0)
+                    : 0;
+            const currCache = msg.usage.cacheRead ?? 0;
+
+            return currCache > prevCache;
+        })
+        .map((msg) => {
+            return {
+                timestamp: msg.timestamp,
+                responseId: msg.responseId,
+                usage: msg.usage,
+            };
+        });
+```
