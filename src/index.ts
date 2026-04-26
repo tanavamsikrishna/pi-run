@@ -22,6 +22,8 @@ export default function (pi: ExtensionAPI) {
     let lastCtx: ExtensionContext | null = null;
     let jiti: Jiti | undefined = undefined;
 
+    // Keep lastCtx current so the `() => lastCtx` getter remains valid
+    // after /pi-run returns (for deferred callbacks in user scripts).
     pi.on("session_start", async (_event, ctx) => {
         lastCtx = ctx;
     });
