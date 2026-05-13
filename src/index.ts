@@ -1,7 +1,7 @@
 import type {
     ExtensionAPI,
     ExtensionContext,
-} from "@mariozechner/pi-coding-agent";
+} from "@earendil-works/pi-coding-agent";
 import { existsSync, writeFileSync, readFileSync } from "node:fs";
 import path, { resolve } from "path";
 import { createJiti, Jiti } from "jiti";

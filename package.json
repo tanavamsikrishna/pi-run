@@ -28,7 +28,7 @@
     "jiti": "^2.6.1"
   },
   "devDependencies": {
-    "@mariozechner/pi-coding-agent": "^0.58.4",
+    "@earendil-works/pi-coding-agent": "^0.74.0",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
