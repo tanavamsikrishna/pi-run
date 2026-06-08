@@ -39,6 +39,25 @@ export default function (pi: ExtensionAPI, getCtx: () => ExtensionContext) {
 }
 ```
 
+**To log tool results to a file**
+```ts
+import { appendFileSync } from "node:fs";
+
+export default function (pi: ExtensionAPI, getCtx: () => ExtensionContext) {
+    pi.on("tool_result", async (event, ctx) => {
+        const logEntry = JSON.stringify({
+            timestamp: new Date().toISOString(),
+            toolName: event.toolName,
+            toolCallId: event.toolCallId,
+            isError: event.isError,
+            content: event.content,
+        }, null, 2);
+
+        appendFileSync("/tmp/pi-tool-results.log", logEntry + "\n");
+    });
+}
+```
+
 **To get assistant message details with decreasing cache reads**
 ```ts
     const ctx = getCtx();
