@@ -1,1 +1,4 @@
 /extensions/
+
+# from former global gitignore
+node_modules/
